@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using static STXAssignment.Controllers.CustomerController;
 
 namespace STXAssignment.Controllers
 {
@@ -22,6 +23,18 @@ namespace STXAssignment.Controllers
             new() { SupplierId = 3, SupplierName = "Global Foods Inc.", Category = "Food & Beverage", Contact = new Contact { Name = "Sophia Lee", Email = "sophia@globalfoods.com", Phone = "+447700123498" }, Country = "UK" }
    
         };
+
+        // Implement HTTP GET endpoint to retrieve the details of a specific Supplier by ID
+        [HttpGet("{id}")]
+        public IActionResult GetSupplierById(int id)
+        {
+            var supplierById = _supplier.FirstOrDefault(s => s.SupplierId == id);
+            if (supplierById == null)
+            {
+                return NotFound(); // Return 404 Not Found if Supplier with given ID is not found
+            }
+            return Ok(supplierById); // Return 200 OK with the details of the Supplier
+        }
 
         // Implement HTTP GET endpoint to retrieve the list of Supplier
         [HttpGet]

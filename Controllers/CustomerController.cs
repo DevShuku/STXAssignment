@@ -21,6 +21,18 @@ namespace STXAssignment.Controllers
             new() { CustomerId = 3, CustomerName = "Global Import Ltd", Type = "Importer", Contact = new Contact { Name = "David Lee", Email = "david@example.com", Phone = "+447700123456" }, Country = "UK" }
         };
 
+        // Implement HTTP GET endpoint to retrieve the details of a specific Customer by ID
+        [HttpGet("{id}")]
+        public IActionResult GetCustomerById(int id)
+        {
+            var customerById = _customer.FirstOrDefault(c => c.CustomerId == id);
+            if (customerById == null)
+            {
+                return NotFound(); // Return 404 Not Found if customer with given ID is not found
+            }
+            return Ok(customerById); // Return 200 OK with the details of the customer
+        }
+
         // Implement HTTP GET endpoint to retrieve the list of Customers
         [HttpGet]
         [Route("CustomerList")]

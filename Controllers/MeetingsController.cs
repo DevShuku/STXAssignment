@@ -22,8 +22,10 @@ namespace STXAssignment.Controllers
             Meeting? meetingById = _meetingService.LoadMeetingDetailById(id);
             if (meetingById == null)
             {
+                _logger.LogError(" Returned 404 error - Meeting Id is not found");
                 return NotFound(); // Return 404 Not Found if meeting with given ID is not found
             }
+            _logger.LogInformation($"Success!! Meeting Details of Id : {0} are : {1}",id, meetingById);
             return Ok(meetingById);
         }
 
@@ -36,6 +38,7 @@ namespace STXAssignment.Controllers
             {
                 MeetingService _meetingService = new MeetingService(new MeetingDAL(), _logger);
                 List<Meeting> _meetings = _meetingService.LoadMeetingDetails();
+                _logger.LogInformation($"Success!! Meeting Details are : {0}", _meetings);
                 return Ok(_meetings);
             }
             catch (Exception ex)

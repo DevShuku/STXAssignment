@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using STXAssignment.Interfaces;
 using STXAssignment.Services;
+using static STXAssignment.Controllers.MeetingsController;
 
 namespace STXAssignment.Controllers
 {
@@ -24,8 +25,10 @@ namespace STXAssignment.Controllers
                 Customer? customerById = _customerService.LoadCustomerDetailById(id);
                 if (customerById == null)
                 {
+                    _logger.LogError(" Returned 404 error - Customer Id is not found");
                     return NotFound(); // Return 404 Not Found if customer with given ID is not found
                 }
+                _logger.LogInformation($"Success!! Customer Details of Id : {0} are : {1}", id, customerById);
                 return Ok(customerById); // Return 200 OK with the details of the customer
             }
             catch (Exception ex)
@@ -45,6 +48,7 @@ namespace STXAssignment.Controllers
             {
                 CustomerService _customerService = new CustomerService(new CustomerDAL(),_logger);
                 List<Customer> _customer = _customerService.LoadCustomerDetails();
+                _logger.LogInformation($"Success!! Customer Details are : {0}", _customer);
                 return Ok(_customer);
             }
             catch (Exception ex)

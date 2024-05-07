@@ -77,7 +77,223 @@ namespace STXAssignment.Interfaces
             },
             ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
             Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =1, CustomerContract=1, SupplierContract=2}
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00004",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =0, CustomerContract=1, SupplierContract=2}
+
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00005",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =2, CustomerContract=1, SupplierContract=2}
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00006",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =0, CustomerContract=1, SupplierContract=2}
+
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00007",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =2, CustomerContract=1, SupplierContract=2}
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00008",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =0, CustomerContract=1, SupplierContract=2}
+
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00009",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =2, CustomerContract=1, SupplierContract=2}
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00010",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =0, CustomerContract=1, SupplierContract=2}
+
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00011",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =2, CustomerContract=1, SupplierContract=2}
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00012",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =0, CustomerContract=1, SupplierContract=2}
+
+          },
+          new TradeDetails
+          {
+            TradeId = "TR-22-00013",
+            TradeName= "XYZ trading",
+            TradeDate = new DateOnly(2024, 05, 02),
+            ContractDetails = new List<ContractDetail>
+            {
+              new ContractDetail { ContractId = "SMJ-001", ContractName ="SMJ Power Ltd", PaymentMethod = "Letter of Credit" },
+              new ContractDetail { ContractId = "JMS-001", ContractName ="JMS Power Ltd", PaymentMethod = "Letter of Credit" }
+            },
+            ProductDetails = new List<ProductDetail>
+            {
+              new ProductDetail { ProductId = "12345 COAL", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "45678 Barite", ProductName ="2000MT"},
+              new ProductDetail { ProductId = "12345 GOLD", ProductName ="3000MT"},
+              new ProductDetail { ProductId = "45678 CRUDE", ProductName ="4000MT"},
+              new ProductDetail { ProductId = "12345 IRON", ProductName ="5000MT"}
+            },
+            ShippingDetails = new ShippingDetail{ ShippingId = "SHNO-1", ShippingBy ="Sea", CostDetails="FOB", LoadingPort="Dubai,UAE", DestinationPort="Sharjah,UAE",LaycanFromDate=new DateOnly(2024, 05, 02),LaycanToDate=new DateOnly(2024, 05, 05)},
+            Status = new ContractStage{ StatusId = 1, EstimatedCostSheet =2, CustomerContract=1, SupplierContract=2}
           }
+
         }; // rejected -0 Approved-1 Pending-2
 
         public List<TradeDetails> LoadTradeDetailsDetails()

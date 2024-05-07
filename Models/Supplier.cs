@@ -2,15 +2,6 @@
 {
     public partial class SupplierController
     {
-        // Define the Supplier class
-        /*public class Supplier
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public string Department { get; set; }
-            // Add any other properties as needed
-        }*/
-
         public class Supplier
         {
             public int SupplierId { get; set; }

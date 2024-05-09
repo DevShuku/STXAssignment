@@ -5,17 +5,22 @@
         // Initialize the static List of Customer objects - dummy data - we can get these data from database after configuring 
         public class TradeDetails
         {
+            [Key]
             public string TradeId { get; set; }
-            public string? TradeName { get; set; } = null;
+            public string TradeName { get; set; }
             public DateOnly TradeDate { get; set; }
-            public List<ContractDetail> ContractDetails {  get; set; }
-            public List<ProductDetail> ProductDetails { get; set; }
-            public  ShippingDetail ShippingDetails { get; set; }
-            public ContractStage Status {  get; set; }
+            public string ContractDetail { get; set; }
+            public string ProductDetail { get; set; }
+            public string ShippingDetail { get; set; }
+            public string Status { get; set; }
+            // public List<ContractDetail> ContractDetails {  get; set; }
+            //public List<ProductDetail> ProductDetails { get; set; }
+            //public  ShippingDetail ShippingDetails { get; set; }
+            //public ContractStage Status {  get; set; }
 
             // Add any other properties as needed
         }
-
+        /*
         public class ContractDetail
         { 
             public string ContractId { get; set; }
@@ -48,7 +53,7 @@
             public int EstimatedCostSheet { get; set; }
             public int CustomerContract { get; set; }
             public int SupplierContract { get; set; }
-        }
+        } */
     }
 }
     

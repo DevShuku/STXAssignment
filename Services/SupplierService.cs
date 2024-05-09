@@ -1,26 +1,29 @@
-﻿using STXAssignment.Interfaces;
-using static STXAssignment.Controllers.SupplierController;
-
+﻿using STXAssignment.Controllers;
+using STXAssignment.Data;
 namespace STXAssignment.Services
 {
-    public class SupplierService
+    public class SupplierService : ISupplierServices
     {
-        public ISupplierServices _supplierServices;
+        private readonly AppDbContext _context;
         private readonly ILogger _logger;
 
         //Injecting the Dependency Object using Constructor means it is a Loose Coupling
-        public SupplierService(ISupplierServices _supplierServices, ILogger logger)
+        public SupplierService(ILogger<SupplierController> logger, AppDbContext context)
         {
-            this._supplierServices = _supplierServices;
+            _context = context;
             _logger = logger;
         }
         public List<Supplier> LoadSupplierDetails()
         {
-            return _supplierServices.LoadSupplierDetails();
+            var suplierList = _context.Suplier.ToList();
+            return suplierList;//_supplierServices.LoadSupplierDetails();
         }
         public Supplier? LoadSupplierDetailById(int id)
         {
-            return _supplierServices.LoadSupplierDetailById(id);
+
+            var suplierList = _context.Suplier.ToList();
+            var supplierById = suplierList.FirstOrDefault(c => c.SupplierId == id);
+            return supplierById; //_supplierServices.LoadSupplierDetailById(id);
         }
     }
 }

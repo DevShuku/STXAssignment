@@ -19,10 +19,15 @@ indicating whether it's rejected or approved as per the trade flow documents.
 
 ## Tech stack 
    - Dotnet core 8.0
+ 
+## Database 
+    - MySQL 8.4.0 
+   
 
 ## Note ⚠️
-The static dataset is used for the all the endpoints. There is **no database implementation** since the time constraints , If time permits I would try to add some MSSQL implementation as part of database.  
-
+  - Initially static dataset is used for the all the endpoints. 
+  - usefull data creation script is added along  > STXAssignment\Data\usefulscripts.sql
+  - 
 ## How to run the project?
 On pre installed **Visual Studio 2022** (It is the latest as of May,2024). Now, follow the following steps.
 1. Open command prompt. Go to a directory where you want to clone this project. Use this command to clone the project.
@@ -31,11 +36,13 @@ On pre installed **Visual Studio 2022** (It is the latest as of May,2024). Now, 
    ```
 2. Go to the directory where you have cloned this project, open the directory `STXAssignment`. You will find a file with name `STXAssignment.sln`. Double click on this file and this project will be opened in Visual Studio.
 ## Since there is no database connection we can skip this part else the below is a vital step  
-3.  open `appsettings.json` file and update connection string
+3.  open `appsettings.json` file and update connection string in your local and run on the localhost after configuring the MySQL datacontext.
  
    ```
      "ConnectionStrings": {
-       "conn": "data source=your_server_name;initial catalog=MovieStoreMvc; integrated security=true;encrypt=false"
+
+         "STXSssignmentCon": "Data Source=localhost;Database={Database name};User={username};Password={password};"
+       
      }
    ```
 4. Now you can run this project

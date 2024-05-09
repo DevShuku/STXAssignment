@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using STXAssignment.Interfaces;
+using STXAssignment.Data;
 using STXAssignment.Services;
 
 namespace STXAssignment.Controllers
@@ -9,9 +9,11 @@ namespace STXAssignment.Controllers
     public partial class TradeDetailsController : ControllerBase
     {
         private readonly ILogger<TradeDetailsController> _logger;
-        public TradeDetailsController(ILogger<TradeDetailsController> logger)
+        private readonly AppDbContext _context;
+        public TradeDetailsController(ILogger<TradeDetailsController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         // Implement HTTP GET endpoint to retrieve the list of Trades
@@ -32,7 +34,7 @@ namespace STXAssignment.Controllers
                     _logger.LogError("Page size must be greater than or equal to 1.");
                     return BadRequest("Page size must be greater than or equal to 1.");
                 }
-                TradeDetailsService _tradeDetailsService = new TradeDetailsService(new TradeDetailsDAL(), _logger);
+                TradeDetailsService _tradeDetailsService = new TradeDetailsService(_logger,_context);
                 List<TradeDetails> _tradeDetailsList = _tradeDetailsService.LoadTradeDetailsDetails();
 
                 // Calculate skip count based on pagination parameters

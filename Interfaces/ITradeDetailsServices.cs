@@ -1,18 +1,18 @@
 ﻿using static STXAssignment.Controllers.TradeDetailsController;
 
-namespace STXAssignment.Interfaces
-{
+//namespace STXAssignment.Interfaces
+//{
     //Service Class or Dependency Object
     //Dependency Object should be Interface-Based
-    public interface ITradeDetailsServices
-    {
-        List<TradeDetails> LoadTradeDetailsDetails();
-    }
+ public interface ITradeDetailsServices
+ {
+    List<TradeDetails> LoadTradeDetailsDetails();
+ }
 
-    public class TradeDetailsDAL : ITradeDetailsServices
+/* public class TradeDetailsDAL : ITradeDetailsServices
     {
         //Get the TradeDetailss from the Database
-        List < TradeDetails > TradeDetailsList = new List<TradeDetails>
+     List < TradeDetails > TradeDetailsList = new List<TradeDetails>
         {
           new TradeDetails
           {
@@ -301,4 +301,4 @@ namespace STXAssignment.Interfaces
             return TradeDetailsList;
         }
     }
-}
+} */

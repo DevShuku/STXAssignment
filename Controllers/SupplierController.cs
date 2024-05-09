@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using STXAssignment.Interfaces;
+using STXAssignment.Data;
 using STXAssignment.Services;
 
 namespace STXAssignment.Controllers
@@ -10,8 +10,11 @@ namespace STXAssignment.Controllers
     public partial class SupplierController : ControllerBase
     {
         private readonly ILogger<SupplierController> _logger;
-        public SupplierController(ILogger<SupplierController> logger)
+        private readonly ISupplierServices _supplierServices;
+        private readonly AppDbContext _context;
+        public SupplierController(ILogger<SupplierController> logger, AppDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -21,7 +24,7 @@ namespace STXAssignment.Controllers
         {
             try
             {
-                SupplierService _supplierService = new SupplierService(new SupplierDAL(), _logger);
+                SupplierService _supplierService = new SupplierService(_logger, _context);
                 Supplier? supplierById = _supplierService.LoadSupplierDetailById(id);
                 if (supplierById == null)
                 {
@@ -45,7 +48,7 @@ namespace STXAssignment.Controllers
         {
             try
             {
-                SupplierService _supplierService = new SupplierService(new SupplierDAL(), _logger);
+                SupplierService _supplierService = new SupplierService(_logger, _context);
                 List<Supplier> _supplier = _supplierService.LoadSupplierDetails();
                 _logger.LogInformation($"Success!! Customer Details are : {0}", _supplier);
                 return Ok(_supplier);

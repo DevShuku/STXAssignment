@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using STXAssignment.Interfaces;
+using STXAssignment.Data;
 using STXAssignment.Services;
-using static STXAssignment.Controllers.MeetingsController;
 
 namespace STXAssignment.Controllers
 {
@@ -10,8 +9,13 @@ namespace STXAssignment.Controllers
     public partial class CustomerController : ControllerBase
     {
         private readonly ILogger<CustomerController> _logger;
-        public CustomerController(ILogger<CustomerController> logger)
+        private readonly AppDbContext _context;
+
+        private readonly ICustomerServices _customerService;
+
+        public CustomerController(ILogger<CustomerController> logger, AppDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -21,7 +25,7 @@ namespace STXAssignment.Controllers
         {
             try
             {
-                CustomerService _customerService = new CustomerService(new CustomerDAL(), _logger);
+                CustomerService _customerService = new CustomerService(_logger,_context);
                 Customer? customerById = _customerService.LoadCustomerDetailById(id);
                 if (customerById == null)
                 {
@@ -46,7 +50,7 @@ namespace STXAssignment.Controllers
         {
             try
             {
-                CustomerService _customerService = new CustomerService(new CustomerDAL(),_logger);
+                CustomerService _customerService = new CustomerService(_logger,_context);
                 List<Customer> _customer = _customerService.LoadCustomerDetails();
                 _logger.LogInformation($"Success!! Customer Details are : {0}", _customer);
                 return Ok(_customer);

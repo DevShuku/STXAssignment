@@ -1,22 +1,28 @@
-﻿using STXAssignment.Interfaces;
+﻿using STXAssignment.Controllers;
+using STXAssignment.Data;
 using static STXAssignment.Controllers.TradeDetailsController;
 
 namespace STXAssignment.Services
 {
-    public class TradeDetailsService
+    public class TradeDetailsService: ITradeDetailsServices
     {
         public ITradeDetailsServices _tradeDetailsServices;
+        private readonly AppDbContext _context;
         private readonly ILogger _logger;
 
         //Injecting the Dependency Object using Constructor means it is a Loose Coupling
-        public TradeDetailsService(ITradeDetailsServices _tradeDetailsServices, ILogger logger)
+        public TradeDetailsService(ILogger<TradeDetailsController> logger, AppDbContext context)
         {
-            this._tradeDetailsServices = _tradeDetailsServices;
+            _context= context;
             _logger = logger;
         }
         public List<TradeDetails> LoadTradeDetailsDetails()
         {
-            return _tradeDetailsServices.LoadTradeDetailsDetails();
+
+            var tradeDetailList = _context.TradeDetails.ToList();
+
+            return tradeDetailList;
+           // return _tradeDetailsServices.LoadTradeDetailsDetails();
         }
     }
 }

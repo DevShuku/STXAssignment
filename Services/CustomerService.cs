@@ -1,26 +1,39 @@
-﻿using STXAssignment.Interfaces;
-using static STXAssignment.Controllers.CustomerController;
+﻿using STXAssignment.Data;
+using STXAssignment.Controllers;
+
 
 namespace STXAssignment.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerServices
     {
-        public ICustomerServices _customerServices;
         private readonly ILogger _logger;
+        private readonly ICustomerServices _customerService;
+        private readonly AppDbContext _context;
+        //  private readonly IConfiguration _configuration;
 
         //Injecting the Dependency Object using Constructor means it is a Loose Coupling
-        public CustomerService(ICustomerServices _customerServices, ILogger logger)
+        public CustomerService(ILogger<CustomerController> logger,AppDbContext context)
         {
-            this._customerServices = _customerServices;
             _logger = logger;
+            _context = context;
         }
         public List<Customer> LoadCustomerDetails()
-        {
-            return _customerServices.LoadCustomerDetails();
+        { // 
+            /* string query1 = @"
+ select c1.CustomerId, c1.CustomerName, c1.Type, c1.ContactId, c1.Contact , c1.Country from Customers c1";
+             DataTable table = new DataTable();
+             string sqlDataSource = _customerServices.GetConnectionString("") */
+
+            var custList = _context.Customer.ToList();
+
+            return custList;//_customerServices.LoadCustomerDetails();
         }
         public Customer? LoadCustomerDetailById(int id)
         {
-            return _customerServices.LoadCustomerDetailById(id);
+            var custList = _context.Customer.ToList();
+            var customerById = custList.FirstOrDefault(c => c.CustomerId == id);
+            return customerById;
+            //return _customerServices.LoadCustomerDetailById(id);
         }
     }
 }

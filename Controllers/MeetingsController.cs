@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using STXAssignment.Interfaces;
+using STXAssignment.Data;
 using STXAssignment.Services;
 
 namespace STXAssignment.Controllers
@@ -9,8 +9,10 @@ namespace STXAssignment.Controllers
     public partial class MeetingsController : ControllerBase
     {
         private readonly ILogger<MeetingsController> _logger;
-        public MeetingsController(ILogger<MeetingsController> logger)
+        private readonly AppDbContext _context;
+        public MeetingsController(ILogger<MeetingsController> logger, AppDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -18,7 +20,7 @@ namespace STXAssignment.Controllers
         [HttpGet("{id}")]
         public IActionResult GetMeetingsById(int id)
         {
-            MeetingService _meetingService = new MeetingService(new MeetingDAL(), _logger);
+            MeetingService _meetingService = new MeetingService(_logger, _context);
             Meeting? meetingById = _meetingService.LoadMeetingDetailById(id);
             if (meetingById == null)
             {
@@ -36,7 +38,7 @@ namespace STXAssignment.Controllers
         {
             try
             {
-                MeetingService _meetingService = new MeetingService(new MeetingDAL(), _logger);
+                MeetingService _meetingService = new MeetingService(_logger, _context);
                 List<Meeting> _meetings = _meetingService.LoadMeetingDetails();
                 _logger.LogInformation($"Success!! Meeting Details are : {0}", _meetings);
                 return Ok(_meetings);

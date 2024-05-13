@@ -27,8 +27,10 @@ indicating whether it's rejected or approved as per the trade flow documents.
 ## Note ⚠️
   - Initially static dataset is used for the all the endpoints. 
   - usefull data creation script is added along  > STXAssignment\Data\usefulscripts.sql
-  - 
-## How to run the project?
+  - A backup file is attached in https://github.com/DevShuku/STXAssignment/tree/master/Data/stxassignmentdbfinal_backup_file.sql
+  - Run the abow backup file for restoring the database in local MySQL Database and use the same database name in 'appsettings.json' file connection string. and you are good to go!
+   
+  ## How to run the project?
 On pre installed **Visual Studio 2022** (It is the latest as of May,2024). Now, follow the following steps.
 1. Open command prompt. Go to a directory where you want to clone this project. Use this command to clone the project.
    ```
@@ -46,6 +48,11 @@ On pre installed **Visual Studio 2022** (It is the latest as of May,2024). Now, 
      }
    ```
 4. Now you can run this project
+
+5. Scope of extenstion to this projects are:
+   a) Custom Exception handling pages
+   b) Unit test implementation.
+   c) SonarQube implementation for the code quality purpose 
 
 Thanks a lot 🙂🙂
 

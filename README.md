@@ -8,9 +8,7 @@ Code Development:
 1. Create two APIs for each module: Customer, Supplier, and Meetings.
 2. The first API will retrieve the count of records, such as the number of customers.
 3. The second API will retrieve a list of records, providing details for each customer.
-4. Create an API to display a list of trade transactions based on their IDs, 
-referencing the Figma document. Ensure that the status reflects the trade flow, 
-indicating whether it's rejected or approved as per the trade flow documents.
+4. Create an API to display a list of trade transactions based on their IDs
 
 📢 This project is built with **.net 8.0
 

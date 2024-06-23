@@ -6,7 +6,7 @@
     //Dependency Object should be Interface-Based
  public interface ITradeDetailsServices
  {
-    List<TradeDetails> LoadTradeDetailsDetails();
+    Task<List<TradeDetails>> LoadTradeDetailsDetails();
  }
 
 /* public class TradeDetailsDAL : ITradeDetailsServices

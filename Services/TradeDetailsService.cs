@@ -16,13 +16,11 @@ namespace STXAssignment.Services
             _context= context;
             _logger = logger;
         }
-        public List<TradeDetails> LoadTradeDetailsDetails()
+        public async Task<List<TradeDetails>> LoadTradeDetailsDetails()
         {
 
-            var tradeDetailList = _context.TradeDetails.ToList();
-
+            var tradeDetailList = await _context.TradeDetails.ToListAsync();
             return tradeDetailList;
-           // return _tradeDetailsServices.LoadTradeDetailsDetails();
         }
     }
 }

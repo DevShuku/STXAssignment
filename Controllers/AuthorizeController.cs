@@ -12,18 +12,19 @@ namespace STXAssignment.Controllers
     public class AuthController : ControllerBase
     {
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginModel login)
+        public async Task<IActionResult> Login([FromBody] LoginModel login)
         {
-            if (login.Username == "shruthimayya" && login.Password == "password")
+            if (await Task.Run(() => login.Username == "shruthimayya" && login.Password == "password"))
             {
-                var token = GenerateJwtToken(login.Username);
+                var token = await GenerateJwtTokenAsync(login.Username);
                 return Ok(new { token });
             }
 
             return Unauthorized();
+
         }
 
-        private string GenerateJwtToken(string username)
+        private async Task<string> GenerateJwtTokenAsync(string username)
         {
             var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTaHJ1dGhpTWF5eWEiLCJpYXQiOjE3MTkxNjI3OTIsImV4cCI6MTc1MDY5ODc5MiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzA1My9zd2FnZ2VyL2luZGV4Lmh0bWwiLCJzdWIiOiJzaHJ1dGhpbWF5eWFAZ21haWwuY29tIiwiTmFtZSI6InNocnV0aGltYXl5YSJ9.n5wJdXSXb_eAeEf_7y06Hfo0KPJBghszaOUZkp8fK34"));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -38,7 +39,7 @@ namespace STXAssignment.Controllers
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return await Task.Run(() => new JwtSecurityTokenHandler().WriteToken(token));
         }
     }
 }

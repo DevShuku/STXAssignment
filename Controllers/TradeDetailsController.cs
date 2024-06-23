@@ -21,7 +21,7 @@ namespace STXAssignment.Controllers
         // Implement HTTP GET endpoint to retrieve the list of Trades
         [HttpGet]
         [Route("TradeDetailsList")]
-        public IActionResult GetTradeDetails([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        public async Task<IActionResult> GetTradeDetails([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace STXAssignment.Controllers
                     return BadRequest("Page size must be greater than or equal to 1.");
                 }
                 TradeDetailsService _tradeDetailsService = new TradeDetailsService(_logger,_context);
-                List<TradeDetails> _tradeDetailsList = _tradeDetailsService.LoadTradeDetailsDetails();
+                List<TradeDetails> _tradeDetailsList = await _tradeDetailsService.LoadTradeDetailsDetails();
 
                 // Calculate skip count based on pagination parameters
                 int skipCount = (pageNumber - 1) * pageSize;

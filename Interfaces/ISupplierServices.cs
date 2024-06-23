@@ -4,8 +4,8 @@
 //Dependency Object should be Interface-Based
     public interface ISupplierServices
     {
-        List<Supplier> LoadSupplierDetails();
-        Supplier? LoadSupplierDetailById(int id);
+        Task<List<Supplier>> LoadSupplierDetails();
+        Task<Supplier?> LoadSupplierDetailById(int id);
     }
 
     /*

@@ -13,17 +13,14 @@ namespace STXAssignment.Services
             _context = context;
             _logger = logger;
         }
-        public List<Supplier> LoadSupplierDetails()
+        public async Task<List<Supplier>> LoadSupplierDetails()
         {
-            var suplierList = _context.Suplier.ToList();
-            return suplierList;//_supplierServices.LoadSupplierDetails();
+            var suplierList =await _context.Suplier.ToListAsync();
+            return suplierList;
         }
-        public Supplier? LoadSupplierDetailById(int id)
+        public async Task<Supplier?> LoadSupplierDetailById(int id)
         {
-
-            var suplierList = _context.Suplier.ToList();
-            var supplierById = suplierList.FirstOrDefault(c => c.SupplierId == id);
-            return supplierById; //_supplierServices.LoadSupplierDetailById(id);
+            return await _context.Suplier.FindAsync(id);
         }
     }
 }

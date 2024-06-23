@@ -6,9 +6,9 @@ using STXAssignment.Data;
 
     public interface ICustomerServices
     {
-        List<Customer> LoadCustomerDetails();
+        Task<List<Customer>> LoadCustomerDetails();
 
-        Customer? LoadCustomerDetailById(int id);
+        Task<Customer?> LoadCustomerDetailById(int id);
     }
     /*
     public class CustomerDAL : ICustomerServices

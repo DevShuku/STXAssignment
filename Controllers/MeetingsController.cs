@@ -20,10 +20,10 @@ namespace STXAssignment.Controllers
 
         // Implement HTTP GET endpoint to retrieve the details of a specific meeting by ID
         [HttpGet("{id}")]
-        public IActionResult GetMeetingsById(int id)
+        public async Task<IActionResult> GetMeetingsById(int id)
         {
             MeetingService _meetingService = new MeetingService(_logger, _context);
-            Meeting? meetingById = _meetingService.LoadMeetingDetailById(id);
+            Meeting? meetingById = await _meetingService.LoadMeetingDetailById(id);
             if (meetingById == null)
             {
                 _logger.LogError(" Returned 404 error - Meeting Id is not found");
@@ -36,12 +36,12 @@ namespace STXAssignment.Controllers
         // Implement HTTP GET endpoint to retrieve the list of Meetings
         [HttpGet]
         [Route("MeetingsList")]
-        public IActionResult GetMeetings()
+        public async Task<IActionResult> GetMeetings()
         {
             try
             {
                 MeetingService _meetingService = new MeetingService(_logger, _context);
-                List<Meeting> _meetings = _meetingService.LoadMeetingDetails();
+                List<Meeting> _meetings = await _meetingService.LoadMeetingDetails();
                 _logger.LogInformation($"Success!! Meeting Details are : {0}", _meetings);
                 return Ok(_meetings);
             }

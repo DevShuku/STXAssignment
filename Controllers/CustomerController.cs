@@ -23,12 +23,12 @@ namespace STXAssignment.Controllers
 
         // Implement HTTP GET endpoint to retrieve the details of a specific Customer by ID
         [HttpGet("{id}")]
-        public IActionResult GetCustomerById(int id)
+        public async Task<IActionResult> GetCustomerById(int id)
         {
             try
             {
                 CustomerService _customerService = new CustomerService(_logger,_context);
-                Customer? customerById = _customerService.LoadCustomerDetailById(id);
+                Customer? customerById = await _customerService.LoadCustomerDetailById(id);
                 if (customerById == null)
                 {
                     _logger.LogError(" Returned 404 error - Customer Id is not found");
@@ -48,12 +48,12 @@ namespace STXAssignment.Controllers
         // Implement HTTP GET endpoint to retrieve the list of Customers
         [HttpGet]
         [Route("CustomerList")]
-        public  IActionResult GetCustomers()
+        public async Task<IActionResult> GetCustomers()
         {
             try
             {
                 CustomerService _customerService = new CustomerService(_logger,_context);
-                List<Customer> _customer = _customerService.LoadCustomerDetails();
+                List<Customer> _customer = await _customerService.LoadCustomerDetails();
                 _logger.LogInformation($"Success!! Customer Details are : {0}", _customer);
                 return Ok(_customer);
             }

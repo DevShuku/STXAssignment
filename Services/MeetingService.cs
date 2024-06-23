@@ -16,18 +16,14 @@ namespace STXAssignment.Services
             this.logger = logger;
         }
 
-        public List<Meeting> LoadMeetingDetails()
+        public async Task<List<Meeting>> LoadMeetingDetails()
         {
-            var meetinglist = _context.Meeting.ToList();
+            var meetinglist = await _context.Meeting.ToListAsync();
             return meetinglist;
-            //return _meetingServices.LoadMeetingDetails();
         }
-        public Meeting? LoadMeetingDetailById(int id)
+        public async Task<Meeting?> LoadMeetingDetailById(int id)
         {
-            var _meetingList = _context.Meeting.ToList();
-            var meetingById = _meetingList.FirstOrDefault(c => c.MeetingId == id);
-            return meetingById;
-           // return _meetingServices.LoadMeetingDetailById(id);
+            return await _context.Meeting.FindAsync(id);
         }
     }
 }

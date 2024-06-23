@@ -4,9 +4,9 @@
 //Dependency Object should be Interface-Based
     public interface IMeetingServices
     {
-        List<Meeting> LoadMeetingDetails();
+        Task<List<Meeting>> LoadMeetingDetails();
 
-        Meeting? LoadMeetingDetailById(int id);
+        Task<Meeting?> LoadMeetingDetailById(int id);
     }
 
    /* public class MeetingDAL : IMeetingServices

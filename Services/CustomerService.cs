@@ -7,7 +7,6 @@ namespace STXAssignment.Services
     public class CustomerService : ICustomerServices
     {
         private readonly ILogger _logger;
-        private readonly ICustomerServices _customerService;
         private readonly AppDbContext _context;
         //  private readonly IConfiguration _configuration;
 
@@ -17,23 +16,19 @@ namespace STXAssignment.Services
             _logger = logger;
             _context = context;
         }
-        public List<Customer> LoadCustomerDetails()
+        public async Task<List<Customer>> LoadCustomerDetails()
         { // 
             /* string query1 = @"
- select c1.CustomerId, c1.CustomerName, c1.Type, c1.ContactId, c1.Contact , c1.Country from Customers c1";
+             select c1.CustomerId, c1.CustomerName, c1.Type, c1.ContactId, c1.Contact , c1.Country from Customers c1";
              DataTable table = new DataTable();
              string sqlDataSource = _customerServices.GetConnectionString("") */
 
-            var custList = _context.Customer.ToList();
-
+            var custList = await _context.Customer.ToListAsync();
             return custList;//_customerServices.LoadCustomerDetails();
         }
-        public Customer? LoadCustomerDetailById(int id)
+        public async Task<Customer?> LoadCustomerDetailById(int id)
         {
-            var custList = _context.Customer.ToList();
-            var customerById = custList.FirstOrDefault(c => c.CustomerId == id);
-            return customerById;
-            //return _customerServices.LoadCustomerDetailById(id);
+            return await _context.Customer.FindAsync(id);
         }
     }
 }

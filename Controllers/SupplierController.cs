@@ -21,12 +21,12 @@ namespace STXAssignment.Controllers
 
         // Implement HTTP GET endpoint to retrieve the details of a specific Supplier by ID
         [HttpGet("{id}")]
-        public IActionResult GetSupplierById(int id)
+        public async Task<IActionResult> GetSupplierById(int id)
         {
             try
             {
                 SupplierService _supplierService = new SupplierService(_logger, _context);
-                Supplier? supplierById = _supplierService.LoadSupplierDetailById(id);
+                Supplier? supplierById =await _supplierService.LoadSupplierDetailById(id);
                 if (supplierById == null)
                 {
                     _logger.LogError(" Returned 404 error - Supplier Id is not found");
@@ -45,12 +45,12 @@ namespace STXAssignment.Controllers
         // Implement HTTP GET endpoint to retrieve the list of Supplier
         [HttpGet]
         [Route("SupplierList")]
-        public IActionResult GetSuppliers()
+        public async Task<IActionResult> GetSuppliers()
         {
             try
             {
                 SupplierService _supplierService = new SupplierService(_logger, _context);
-                List<Supplier> _supplier = _supplierService.LoadSupplierDetails();
+                List<Supplier> _supplier =await _supplierService.LoadSupplierDetails();
                 _logger.LogInformation($"Success!! Customer Details are : {0}", _supplier);
                 return Ok(_supplier);
             }

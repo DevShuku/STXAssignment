@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using STXAssignment.Data;
 using STXAssignment.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace STXAssignment.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public partial class CustomerController : ControllerBase
@@ -11,7 +13,7 @@ namespace STXAssignment.Controllers
         private readonly ILogger<CustomerController> _logger;
         private readonly AppDbContext _context;
 
-        private readonly ICustomerServices _customerService;
+       // private readonly ICustomerServices _customerService;
 
         public CustomerController(ILogger<CustomerController> logger, AppDbContext context)
         {
@@ -46,7 +48,7 @@ namespace STXAssignment.Controllers
         // Implement HTTP GET endpoint to retrieve the list of Customers
         [HttpGet]
         [Route("CustomerList")]
-        public IActionResult GetCustomers()
+        public  IActionResult GetCustomers()
         {
             try
             {

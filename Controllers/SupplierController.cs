@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using STXAssignment.Data;
 using STXAssignment.Services;
 
 namespace STXAssignment.Controllers
 {
-
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public partial class SupplierController : ControllerBase
